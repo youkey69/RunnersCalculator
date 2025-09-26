@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Record Inventory</title>
+<h1>Record Inventory</h1>
+<form method="get">
+  <input type="text" name="q" placeholder="Search by title or artist" value="{{ query }}">
+  <input type="submit" value="Search">
+</form>
+<ul>
+{% for record in results %}
+  <li>{{ record['artist'] }} - {{ record['title'] }} ({{ record['year'] }})</li>
+{% else %}
+  {% if query %}
+    <li>No results</li>
+  {% endif %}
+{% endfor %}
+</ul>
